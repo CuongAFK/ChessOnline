@@ -1,12 +1,24 @@
-# React + Vite
+Chess Online
+Chess Online là một ứng dụng web cho phép hai người chơi đấu cờ vua trực tuyến theo thời gian thực. Dự án sử dụng React cho giao diện người dùng và Node.js kết hợp Socket.IO cho phần backend, đảm bảo cập nhật trạng thái game nhanh chóng và mượt mà.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tính năng
+Đăng nhập bằng ID người chơi.
+Tạo phòng chơi mới hoặc tham gia phòng có sẵn thông qua mã phòng.
+Bắt đầu ván cờ khi có đủ hai người chơi.
+Hiển thị bàn cờ và hỗ trợ di chuyển quân cờ theo lượt.
+Phát hiện các trạng thái như chiếu, chiếu hết, và hòa cờ.
+Cho phép người chơi rời phòng hoặc thoát game bất kỳ lúc nào.
+Công nghệ sử dụng
+Frontend: React, Socket.IO Client, Chess.js, React Chessboard.
+Backend: Node.js, Express, Socket.IO.
+Deployment: Render (hoặc các dịch vụ tương tự như Heroku, Vercel).
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Hướng dẫn sử dụng
+Đăng nhập: Nhập ID người chơi và nhấn "Vào Game".
+Tạo phòng: Nhấn "Tạo Phòng Mới" để nhận mã phòng.
+Tham gia phòng: Nhập mã phòng và nhấn "Vào Phòng".
+Bắt đầu game: Khi có đủ hai người chơi, chủ phòng nhấn "Bắt đầu" để khởi động ván cờ.
+Chơi cờ: Di chuyển quân cờ theo lượt, hệ thống sẽ kiểm tra tính hợp lệ của mỗi nước đi.
+Rời phòng: Nhấn "Rời Phòng" để thoát khỏi game.
+Góp ý và báo lỗi
+Nếu bạn gặp vấn đề hoặc có ý tưởng cải thiện, vui lòng mở issue trên GitHub hoặc gửi pull request.
