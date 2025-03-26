@@ -55,7 +55,23 @@ function App() {
     }, [playerId]);
 
     useEffect(() => {
-        const newSocket = io(import.meta.env.VITE_API_URL || 'http://localhost:3000');
+        const socketUrl = import.meta.env.PROD
+            ? window.location.origin  // Tự động lấy URL khi deploy
+            : 'http://localhost:3000'; // Dev environment
+
+        console.log('Connecting to socket at:', socketUrl);
+
+        const newSocket = io(socketUrl, {
+            transports: ['websocket', 'polling'],
+            reconnection: true,
+            reconnectionAttempts: 5
+        });
+
+        // Thêm error handler
+        newSocket.on('connect_error', (error) => {
+            console.error('Socket connection error:', error);
+        });
+        
         setSocket(newSocket);
 
         newSocket.on('loginResponse', (response) => {
