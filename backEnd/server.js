@@ -3,6 +3,7 @@ const express = require('express');
 const http = require('http');
 const { Server } = require("socket.io");
 const { Chess } = require('chess.js');
+const path = require('path');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -253,9 +254,16 @@ io.on('connection', (socket) => {
     });
 });
 
+// Phục vụ các file tĩnh từ thư mục 'frontEnd/dist' (sau khi build frontend)
+app.use(express.static(path.join(__dirname, '../frontEnd/dist')));
+
 
 app.get('/', (req, res) => {
     res.send('Chào mừng đến với server backend cờ vua online!'); // Hoặc nội dung bạn muốn hiển thị
+});
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontEnd/dist', 'index.html'));
 });
 
 
