@@ -254,6 +254,12 @@ io.on('connection', (socket) => {
 });
 
 
+app.get('/', (req, res) => {
+    res.send('Chào mừng đến với server backend cờ vua online!'); // Hoặc nội dung bạn muốn hiển thị
+});
+
+
+
 server.listen(port, () => {
     console.log(`Em server múp rụp: Anh ơi em đang chạy ở cổng ${port}`);
 });
