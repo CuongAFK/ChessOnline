@@ -55,7 +55,7 @@ function App() {
     }, [playerId]);
 
     useEffect(() => {
-        const newSocket = io(process.env.REACT_APP_API_URL || 'http://localhost:3000');
+        const newSocket = io(import.meta.env.VITE_API_URL || 'http://localhost:3000');
         setSocket(newSocket);
 
         newSocket.on('loginResponse', (response) => {
